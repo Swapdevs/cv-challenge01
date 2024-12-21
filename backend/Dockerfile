@@ -1,24 +1,31 @@
-# Use the latest official Python image as a base
-FROM python:latest
+# Use Python 3.10 image as base
+FROM python:3.10
 
-# Install Node.js and npm
-RUN apt-get update && apt-get install -y \
-    nodejs \
-    npm
-
-# Install Poetry using pip
-RUN pip install poetry
-
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy the application files
-COPY . .
+# Install curl and bash
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies using Poetry
+# Install Poetry
+RUN curl -sSL https://install.python-poetry.org | python3 -
+
+# Add Poetry to the PATH
+ENV PATH="/root/.local/bin:$PATH"
+
+# Copy the rest of the application code into the container
+COPY . /app
+
+# Install the dependencies using Poetry
 RUN poetry install
 
-# Expose the port FastAPI runs on
+# Make sure the prestart script is executable
+RUN chmod +x ./prestart.sh
+
+# Expose the port the app runs on
 EXPOSE 8000
 
 # Run the prestart script and start the server
