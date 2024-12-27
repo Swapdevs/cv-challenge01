@@ -1,0 +1,2 @@
+2024/12/21 23:14:00 [warn] 243#243: *14637 using uninitialized "server" variable while logging request, client: 193.41.206.24, server: api.swapdevs.tech, request: "GET /.env HTTP/1.1", host: "api.swapdevs.tech"
+2024/12/22 03:32:51 [warn] 249#249: *15259 using uninitialized "server" variable while logging request, client: 193.41.206.24, server: api.swapdevs.tech, request: "GET /.env HTTP/1.1", host: "api.swapdevs.tech"
