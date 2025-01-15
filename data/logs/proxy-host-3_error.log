@@ -1,0 +1,2 @@
+2025/01/13 16:21:14 [warn] 207#207: *7029 using uninitialized "server" variable while logging request, client: 103.150.37.80, server: db.swapdevs.tech
+2025/01/14 14:11:53 [warn] 186#186: *567 using uninitialized "server" variable while logging request, client: 2.58.242.78, server: db.swapdevs.tech
